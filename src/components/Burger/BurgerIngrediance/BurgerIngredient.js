@@ -30,11 +30,12 @@ class BurgerIngriance extends React.Component {
       case "salad":
         ingrediant = <div className={classes.Salad} />;
         break;
-        default:
-          ingrediant=ingrediant
+      default:
+      console.log(this.props.type,"No match found")
+        ingrediant = <div />;
     }
 
-    return (<Aux>{ingrediant}</Aux>);
+    return <Aux>{ingrediant}</Aux>;
   }
 }
 
