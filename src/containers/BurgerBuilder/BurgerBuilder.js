@@ -4,10 +4,10 @@ import Burger from "../../components/Burger/Burger";
 import Buildcontrols from "../../components/Burger/BuildControls/BuildControls";
 
 const INGREDIANT_PRICES = {
-  cheese: 1,
-  bacon: 2,
-  meat: 3,
-  salad: 4
+  cheese: 1.5,
+  bacon: 2.3,
+  meat: 3.5,
+  salad: 4.7
 };
 class BurgerBuilder extends React.Component {
   state = {
@@ -27,16 +27,15 @@ class BurgerBuilder extends React.Component {
     };
     const priceAddtion = INGREDIANT_PRICES[type];
     updatedIngrediants[type] = updatedCount;
-    this.setState({ingrediant:updatedIngrediants})
+    this.setState({ ingrediant: updatedIngrediants });
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice + priceAddtion;
     this.setState({ totalPrice: newPrice });
-    console.log(newPrice,"Burger Builder")
   };
   removeIngrediantsHandler = type => {
     const oldCount = this.state.ingrediant[type];
-    if(oldCount<=0){
-      return ;
+    if (oldCount <= 0) {
+      return;
     }
     const updatedCount = oldCount - 1;
     const updatedIngrediants = {
@@ -44,25 +43,24 @@ class BurgerBuilder extends React.Component {
     };
     const priceDeduction = INGREDIANT_PRICES[type];
     updatedIngrediants[type] = updatedCount;
-    this.setState({ingrediant:updatedIngrediants})
+    this.setState({ ingrediant: updatedIngrediants });
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - priceDeduction;
     this.setState({ totalPrice: newPrice });
-    console.log(newPrice,"Burger Builder")
-
   };
   render() {
-    const disableInfo={...this.state.ingrediant};
-    for(let key in disableInfo){
-      disableInfo[key]=disableInfo[key]<=0;
+    const disableInfo = { ...this.state.ingrediant };
+    for (let key in disableInfo) {
+      disableInfo[key] = disableInfo[key] <= 0;
     }
     return (
       <Aux>
         <Burger ingrediant={this.state.ingrediant} />
-        <Buildcontrols 
-        ingrediantAdded={this.addIngrediantsHandler}
-        ingrediantRemoved={this.removeIngrediantsHandler}
-        disabled={disableInfo}
+        <Buildcontrols
+          ingrediantAdded={this.addIngrediantsHandler}
+          ingrediantRemoved={this.removeIngrediantsHandler}
+          disabled={disableInfo}
+          price={this.state.totalPrice}
         />
       </Aux>
     );
