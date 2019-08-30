@@ -1,5 +1,5 @@
 import React from "react";
-import Aux from "../../hoc/Aux";
+import Aux from "../../hoc/Aux/Aux";
 import Burger from "../../components/Burger/Burger";
 import Buildcontrols from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
@@ -14,7 +14,7 @@ class BurgerBuilder extends React.Component {
   state = {
     ingrediant: {
       cheese: 0,
-      bacon: 0,
+      bacon: 1,
       meat: 0,
       salad: 0
     },
