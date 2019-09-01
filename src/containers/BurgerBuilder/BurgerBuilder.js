@@ -98,7 +98,7 @@ class BurgerBuilder extends React.Component {
       }
     };
     axios
-      .post("/orders", order)
+      .post("/orders.json", order)
       .then(response => {
         console.log(response,"purchase request sent successfully");
         this.setState({loading:false,purchasing:false});
