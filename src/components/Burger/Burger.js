@@ -2,10 +2,10 @@ import React from "react";
 import classes from "./Burger.css";
 import BurgerIngriance from "./BurgerIngrediance/BurgerIngredient";
 const burger = props => {
-  console.log(props.ingrediant);
-  let transformedIngrediant = Object.keys(props.ingrediant)
+  console.log(props.ingrediants);
+  let transformedIngrediant = Object.keys(props.ingrediants)
     .map(ingKeys => {
-      return [...Array(props.ingrediant[ingKeys])].map((item, index) => {
+      return [...Array(props.ingrediants[ingKeys])].map((item, index) => {
         return <BurgerIngriance type={ingKeys} key={ingKeys + index} />;
       });
     })
