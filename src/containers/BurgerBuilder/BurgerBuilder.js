@@ -16,7 +16,7 @@ const INGREDIANT_PRICES = {
 };
 class BurgerBuilder extends React.Component {
   state = {
-    ingrediants:null,
+    ingrediants: null,
     totalPrice: 4,
     purchasable: false,
     purchasing: false,
@@ -24,13 +24,10 @@ class BurgerBuilder extends React.Component {
   };
 
   componentDidMount() {
-    axios
-      .get("/ingrediants.json")
-      .then(response => {
-        console.log(response);
-        this.setState({ ingrediants: response.data });
-        
-      });
+    axios.get("/ingrediants.json").then(response => {
+      console.log(response);
+      this.setState({ ingrediants: response.data });
+    });
   }
   addIngrediantsHandler = type => {
     const oldCount = this.state.ingrediants[type];
@@ -112,6 +109,7 @@ class BurgerBuilder extends React.Component {
         this.setState({ loading: false, purchasing: false });
         console.log(error);
       });
+    this.props.history.push("/checkout");
   };
 
   render() {
@@ -148,7 +146,7 @@ class BurgerBuilder extends React.Component {
     if (this.state.loading) {
       orderSummary = <Spinner />;
     }
-console.log(burger,this.state.ingrediants);
+    console.log(burger, this.state.ingrediants);
     return (
       <Aux>
         <Modal

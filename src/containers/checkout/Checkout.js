@@ -13,7 +13,7 @@ class Checkout extends React.Component {
   render() {
     return (
       <div>
-        {/*on click of Continue display this page by using routing */}
+        {/*on click of Continue display this page by using routing and hide burger builder*/}
         <CheckoutSummary ingrediants={this.state.ingrediants} />
       </div>
     );
