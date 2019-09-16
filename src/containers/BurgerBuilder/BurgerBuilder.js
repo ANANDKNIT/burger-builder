@@ -104,12 +104,12 @@ class BurgerBuilder extends React.Component {
       .then(response => {
         console.log(response, "purchase request sent successfully");
         this.setState({ loading: false, purchasing: false });
+        this.props.history.push("/checkout");
       })
       .catch(error => {
         this.setState({ loading: false, purchasing: false });
         console.log(error);
       });
-    this.props.history.push("/checkout");
   };
 
   render() {
