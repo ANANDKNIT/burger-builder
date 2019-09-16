@@ -3,12 +3,7 @@ import CheckoutSummary from "../../components/order/checkoutSummary/CheckoutSumm
 
 class Checkout extends React.Component {
   state = {
-    ingrediants: {
-      salad: 1,
-      meat: 1,
-      cheese: 1,
-      bacon: 1
-    }
+    ingrediants: {}
   };
 
   checkoutCancelled = () => {
@@ -17,6 +12,15 @@ class Checkout extends React.Component {
   checkoutContinued = () => {
     this.props.history.replace("/checkout/contact-data");
   };
+
+  componentDidMount() {
+    const query = new URLSearchParams(this.props.location.search);
+    const ingrediants = {};
+    for (let param of query.entries()) {
+      ingrediants[param[0]] = +param[1];
+    }
+    this.setState({ ingrediants: ingrediants });
+  }
 
   render() {
     return (
