@@ -17,6 +17,8 @@
 
 .Success {
   color: #5c9210;
+  /* border: 1px solid green; */
+  text-align: center;
 }
 
 .Danger {
