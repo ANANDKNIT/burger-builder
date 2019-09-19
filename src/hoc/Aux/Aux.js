@@ -1,3 +1,3 @@
-export default  function Aux (props) {
+export default function Aux(props) {
   return props.children;
-};
+}

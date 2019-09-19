@@ -27,7 +27,6 @@ class Checkout extends React.Component {
   render() {
     return (
       <div>
-        {/*on click of Continue display this page by using routing and hide burger builder*/}
         <CheckoutSummary
           checkoutCancelled={this.checkoutCancelled}
           checkoutContinued={this.checkoutContinued}

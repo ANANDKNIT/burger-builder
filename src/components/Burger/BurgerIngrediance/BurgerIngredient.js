@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classes from "./BurgerIngredient.css";
 import Aux from "../../../hoc/Aux/Aux";
 
-class BurgerIngriance extends React.Component {
+class BurgerIngriant extends React.Component {
   render() {
     let ingrediant = null;
     switch (this.props.type) {
@@ -31,7 +31,7 @@ class BurgerIngriance extends React.Component {
         ingrediant = <div className={classes.Salad} />;
         break;
       default:
-      console.log(this.props.type,"No match found")
+        console.log(this.props.type, "No match found");
         ingrediant = <div />;
     }
 
@@ -39,8 +39,8 @@ class BurgerIngriance extends React.Component {
   }
 }
 
-BurgerIngriance.propTypes = {
+BurgerIngriant.propTypes = {
   type: PropTypes.string.isRequired
 };
 
-export default BurgerIngriance;
+export default BurgerIngriant;
